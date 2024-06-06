@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display Excel Sheet</title>
+  </head>
+  <body>
+    <h1>Select an Excel Sheet</h1>
+    <input type="file" id="fileInput">
+    <button onclick="displaySheet()">Display Sheet</button>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+
+<script>
+  function displaySheet() {
+    // Get the selected file
+    const selectedFile = document.getElementById("fileInput").files[0];
+
+    // Read the selected file using FileReader API
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(selectedFile);
+
+    // When the file is loaded, create a new Excel file and display the selected sheet
+    reader.onload = function(event) {
+      const data = new Uint8Array(event.target.result);
+      const workbook = XLSX.read(data, { type: "array" });
+      const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+
+      // Create a new Excel file and add the selected sheet to it
+      const newWorkbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(newWorkbook, worksheet, "Selected Sheet");
+
+      // Save the new Excel file and open it in a new window
+      const excelBuffer = XLSX.write(newWorkbook, { bookType: "xlsx", type: "array" });
+      const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Selected Sheet.xlsx";
+      a.click();
+      URL.revokeObjectURL(url);
+    };
+  }
+</script>
+
+</html>

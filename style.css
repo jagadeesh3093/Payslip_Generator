@@ -1,0 +1,48 @@
+/* body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('img.jpg') no-repeat;
+} */
+.container{
+    margin-top: 100px;
+    width:100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 40px;
+
+}
+
+h1{
+    text-align: center;
+}
+select{
+    width: 100%;
+    padding-left: 10px;
+}
+label{
+    margin-left: 25%;
+    font-size: larger;
+    font-weight: bold;
+}
+input{
+    width: 100%;
+}
+button{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    background-color: #00bcd4;
+    border-radius: 5px;
+    color: white;
+    font-size: larger;
+    text-align: center;
+    cursor: pointer;
+}
+

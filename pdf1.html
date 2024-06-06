@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Slip</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <style type="text/css">
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid black;
+            padding-left: 2px;
+            
+        }
+        th,td{
+            padding: 8px;
+            /* text-align: left; */
+            border: 2px solid black;
+        }
+        h4{
+            float: right;
+        }
+        img{
+            width: 100%;
+        }
+        button{
+            color: white;
+            background-color: rgb(6, 6, 244);
+            font: 25px;
+            height: 50px;
+            width: 150px;
+        }
+        #pdf{
+            padding: 20px;
+        }
+        @media print{
+            #pdf{
+                margin: 0;
+                padding: 0;
+                width: 330mm;
+                height: 297mm;
+            }
+            .print-only{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="pdf">
+        <h4>college Copy</h4>
+        <img src="giet.jpg" alt="">
+        <h1 style="text-align: center;">Pay Slip for the month <span id="sm"></span></h1>
+        <div>
+        <table >
+            <tr>
+                <td>Employee Name</td>
+                <th><span id="employeeName"></span></th>
+                <td>Account number</td>
+                <th>123456</th>
+            </tr>
+            <tr>
+                <td>Designation</td>
+                <th><span id="desg"></span></th>
+                <td>Bank Name</td>
+                <th>SBI</th>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <th><span id="dept"></span></th>
+                <td>PAN No</td>
+                <th>456789as</th>
+            </tr>
+            <tr>
+                <td>Pay scale Band</td>
+                <th>15600-39100</th>
+                <td>Aadhar</td>
+                <th>159121352952</th>
+            </tr>
+        </table><br>
+        <div>
+            <table>
+                <tr>
+                    <th colspan="2" style="text-align: center;">Earnings(Rs)</th>
+                    <th colspan="2" style="text-align: center;">Deductions(Rs)</th>
+                </tr>
+                <tr>
+                    <th style="text-align: center;">Description</th>
+                    <th style="text-align: center;">Net Amount</th>
+                    <th style="text-align: center;">Description</th>
+                    <th style="text-align: center;">Net Amount</th>
+                </tr>
+                <tr>
+                    <td>Basic pay</td>
+                    <th style="text-align: right;"><span id = "pay"></span></th>
+                    <td>Professional Tax (PT)</td>
+                    <th style="text-align: right;"><span></span><span id="pt"></span></th>
+                </tr>
+                <tr>
+                    <td>AGP</td>
+                    <th style="text-align: right;"><span></span><span id="agp"></span></th>
+                    <td>Income Tax (TDS)</td>
+                    <th style="text-align: right;"><span></span><span id="tds"></span></th>
+                </tr>
+                <tr>
+                    <td>DA</td>
+                    <th style="text-align: right;"><span></span><span id="da"></span></th>
+                    <td>Other Deductions</td>
+                    <th style="text-align: right;"><span></span><span id="other2"></span></th>
+                </tr>
+                <tr>
+                    <td>HRA</td>
+                    <th style="text-align: right;"><span></span><span id="hra"></span></th>
+                    <th></th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Other Deductions if any</td>
+                    <th style="text-align: right;"><span></span><span id="other1"></span></th>
+                    <th></th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th style="text-align: center;">Gross Salary</td>
+                    <th style="text-align: right;"><span id="gsalary"></span></th>
+                    <td style="text-align: center;">Net Salary</td>
+                    <th style="text-align: right;"><span id="nsalary"></span></th>
+                </tr>
+            </table>
+        </div><br>
+        <div><br>
+            <h2 style="float: left;">college Seal</h2>
+            <h2 style="float: right;">Authorised Signatory</h2>
+        </div><br><br><br>
+        <h4>Employee Copy</h4>
+        <img src="giet.jpg" alt="">
+        <h1 style="text-align: center;">Pay Slip for the month <span id="sm1"></span></h1>
+        <div>
+            <table >
+                <tr>
+                    <td>Employee Name</td>
+                    <th><span id="emp"></span></th>
+                    <td>Account number</td>
+                    <th>123456</th>
+                </tr>
+                <tr>
+                    <td>Designation</td>
+                    <th><span id="desg1"></span></th></th>
+                    <td>Bank Name</td>
+                    <th>SBI</th>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <th><span id="dept1"></span></th>
+                    <td>PAN No</td>
+                    <th>456789as</th>
+                </tr>
+                <tr>
+                    <td>Pay scale Band</td>
+                    <th>15600-39100</th>
+                    <td>Aadhar</td>
+                    <th>159121352952</th>
+                </tr>
+            </table><br>
+        
+            <div>
+                <table >
+                        <tr>
+                            <th colspan="2" style="text-align: center;">Earnings(Rs)</th>
+                            <th colspan="2" style="text-align: center;">Deductions(Rs)</th>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center;">Description</th>
+                            <th style="text-align: center;">Net Amount</th>
+                            <th style="text-align: center;">Description</th>
+                            <th style="text-align: center;">Net Amount</th>
+                        </tr>
+                        <tr>
+                            <td>Basic pay</td>
+                            <th style="text-align: right;"><span id = "pay1"></span></th>
+                            <td>Professional Tax (PT)</td>
+                            <th style="text-align: right;"><span></span><span id="pt1"></span></th>
+                        </tr>
+                        <tr>
+                            <td>AGP</td>
+                            <th style="text-align: right;"><span></span><span id="agp1"></span></th>
+                            <td>Income Tax (TDS)</td>
+                            <th style="text-align: right;"><span></span><span id="tds1"></span></th>
+                        </tr>
+                        <tr>
+                            <td>DA</td>
+                            <th style="text-align: right;"><span></span><span id="da1"></span></th>
+                            <td>Other Deductions</td>
+                            <th style="text-align: right;"><span></span><span id="other21"></span></th>
+                        </tr>
+                        <tr>
+                            <td>HRA</td>
+                            <th style="text-align: right;"><span></span><span id="hra1"></span></th>
+                            <th></th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Other Deductions if any</td>
+                            <th style="text-align: right;"><span></span><span id="other11"></span></th>
+                            <th></th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center;">Gross Salary</td>
+                            <th style="text-align: right;"><span id="gsalary1"></span></th>
+                            <td style="text-align: center;">Net Salary</td>
+                            <th style="text-align: right;"><span id="nsalary1"></span></th>
+                        </tr>
+                    </table>
+            </div><br>
+            <div><br>
+                <h2 style="float: left;">college Seal</h2>
+                <h2 style="float: right;">Authorised Signatory</h2>
+            </div><br><br>
+        </div><br>
+    </div>
+    <button onclick="window.print()" class="print-only" style="margin-left: 45%;">Download PDF</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const employeeName = decodeURIComponent(urlParams.get("employee"));
+    const emp=urlParams.get("emp");
+    const pay = urlParams.get("pay");
+    const dept =urlParams.get("dept");
+    const agp =urlParams.get("agp");
+    const desg=urlParams.get("desg");
+    const da=urlParams.get("da");
+    const hra =urlParams.get("hra");
+    const other1 =urlParams.get("other1");
+    const gsalary=urlParams.get("gsalary");
+    const pt=urlParams.get("pt");
+    const other2 = urlParams.get("other2");
+    const tds = urlParams.get("tds");
+    const nsalary=urlParams.get("nsalary");
+    const pay1 = urlParams.get("pay1");
+    const dept1 =urlParams.get("dept1");
+    const agp1 =urlParams.get("agp1");
+    const desg1=urlParams.get("desg1");
+    const da1=urlParams.get("da1");
+    const hra1 =urlParams.get("hra1");
+    const other11 =urlParams.get("other11");
+    const gsalary1=urlParams.get("gsalary1");
+    const pt1=urlParams.get("pt1");
+    const other21 = urlParams.get("other21");
+    const tds1 = urlParams.get("tds1");
+    const nsalary1=urlParams.get("nsalary1");
+    const sm=urlParams.get("sm");
+    const sm1=urlParams.get("sm1");
+
+    const employeeNameElement = document.getElementById("employeeName");
+    employeeNameElement.textContent = employeeName;
+
+    const empElement = document.getElementById("emp");
+    empElement.textContent = emp;
+
+    const payElement = document.getElementById("pay");
+    payElement.textContent = pay;
+
+    const deptElement = document.getElementById("dept");
+    deptElement.textContent = dept;
+
+    const agpElement = document.getElementById("agp");
+    agpElement.textContent = agp;
+
+    const desgElement = document.getElementById("desg");
+    desgElement.textContent = desg;
+
+    const daElement = document.getElementById("da");
+    daElement.textContent = da;
+    
+    const hraElement = document.getElementById("hra");
+    hraElement.textContent = hra;
+    
+    const other1Element = document.getElementById("other1");
+    other1Element.textContent = other1;
+
+    const gsalaryElement = document.getElementById("gsalary");
+    gsalaryElement.textContent = gsalary;
+
+    const ptElement = document.getElementById("pt");
+    ptElement.textContent = pt;
+
+    const other2Element = document.getElementById("other2");
+    other2Element.textContent = other2;
+
+    const tdsElement = document.getElementById("tds");
+    tdsElement.textContent = tds;
+
+    const nsalaryElement = document.getElementById("nsalary");
+    nsalaryElement.textContent = nsalary;
+
+    const smElement = document.getElementById("sm");
+    smElement.textContent = sm;
+
+    const sm1Element = document.getElementById("sm1");
+    sm1Element.textContent = sm1;
+
+    const pay1Element = document.getElementById("pay1");
+    pay1Element.textContent = pay1;
+
+    const dept1Element = document.getElementById("dept1");
+    dept1Element.textContent = dept1;
+
+    const agp1Element = document.getElementById("agp1");
+    agp1Element.textContent = agp1;
+
+    const desg1Element = document.getElementById("desg1");
+    desg1Element.textContent = desg1;
+
+    const da1Element = document.getElementById("da1");
+    da1Element.textContent = da1;
+    
+    const hra1Element = document.getElementById("hra1");
+    hra1Element.textContent = hra1;
+    
+    const other11Element = document.getElementById("other11");
+    other11Element.textContent = other11;
+
+    const gsalary1Element = document.getElementById("gsalary1");
+    gsalary1Element.textContent = gsalary1;
+
+    const pt1Element = document.getElementById("pt1");
+    pt1Element.textContent = pt1;
+
+    const other21Element = document.getElementById("other21");
+    other21Element.textContent = other21;
+
+    const tds1Element = document.getElementById("tds1");
+    tds1Element.textContent = tds1;
+
+    const nsalary1Element = document.getElementById("nsalary1");
+    nsalary1Element.textContent = nsalary1;
+    
+  </script>
+</body>
+</html>
